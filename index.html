@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="マイプレイリスト">
+<meta name="theme-color" content="#111318">
+<title>マイプレイリスト</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎵</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1>🎵 マイプレイリスト</h1>
+    <div class="playlist-bar">
+      <select id="playlistSelect" aria-label="プレイリスト選択"></select>
+      <button id="newPlaylistBtn" title="新しいプレイリスト">＋</button>
+      <button id="renamePlaylistBtn" title="名前を変更">✏️</button>
+      <button id="deletePlaylistBtn" title="このリストを削除">🗑</button>
+    </div>
+  </header>
+
+  <section class="add-bar">
+    <input id="urlInput" type="url" inputmode="url" autocomplete="off"
+           placeholder="YouTubeのURLを貼り付けて「追加」">
+    <button id="addBtn">追加</button>
+  </section>
+
+  <section class="player-wrap"><div id="player"></div></section>
+
+  <section class="controls">
+    <button id="prevBtn" title="前の曲">⏮</button>
+    <button id="playBtn" class="big" title="再生/一時停止">▶</button>
+    <button id="nextBtn" title="次の曲">⏭</button>
+    <button id="shuffleBtn" title="シャッフル">🔀</button>
+    <button id="repeatBtn" title="リピート">🔁</button>
+    <button id="shareBtn" title="共有URLをコピー">📤</button>
+  </section>
+
+  <ol id="trackList"></ol>
+</main>
+<div id="toast" hidden></div>
+<script src="lib.js"></script>
+<script src="app.js"></script>
+<script src="https://www.youtube.com/iframe_api" async></script>
+</body>
+</html>
