@@ -339,3 +339,5 @@ $('deletePlaylistBtn').addEventListener('click', deletePlaylist);
 // ---------- 起動 ----------
 render();
 handleImportHash();
+// アプリを開いたまま共有リンクを開いた場合にも取り込めるように
+window.addEventListener('hashchange', handleImportHash);
