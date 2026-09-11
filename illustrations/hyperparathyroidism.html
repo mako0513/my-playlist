@@ -1,0 +1,581 @@
+<title>副甲状腺機能亢進症</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --paper:#f1f4f2;
+  --surface:#fbfcfb;
+  --surface-2:#e7ebea;
+  --ink:#16212a;
+  --ink-2:#59696f;
+  --line:#d2d9d6;
+  --line-strong:#b3bebb;
+  --accent:#b5405c;
+  --accent-soft:rgba(181,64,92,.10);
+  --gland:#cf9a3f;
+  --gland-soft:#efdfbe;
+  --thyroid:#b06a5c;
+  --thyroid-soft:#e8cec6;
+  --nerve:#c9b64c;
+  --tube:#dfe4e3;
+  --eso:#c9d2d1;
+  --organ:#e4eae8;
+  --up:#a83c28;
+  --down:#25687a;
+  --lead:1.85;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0e161b;
+    --surface:#152028;
+    --surface-2:#1c2830;
+    --ink:#e2ebe8;
+    --ink-2:#96a6ab;
+    --line:#2a3a43;
+    --line-strong:#455a64;
+    --accent:#e4738b;
+    --accent-soft:rgba(228,115,139,.16);
+    --gland:#dcae5c;
+    --gland-soft:#4a3c20;
+    --thyroid:#c5806f;
+    --thyroid-soft:#472d28;
+    --nerve:#cfbe5f;
+    --tube:#22303a;
+  --eso:#33454f;
+    --eso:#33454f;
+    --organ:#202e37;
+    --up:#e28166;
+    --down:#63b4c6;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0e161b;
+  --surface:#152028;
+  --surface-2:#1c2830;
+  --ink:#e2ebe8;
+  --ink-2:#96a6ab;
+  --line:#2a3a43;
+  --line-strong:#455a64;
+  --accent:#e4738b;
+  --accent-soft:rgba(228,115,139,.16);
+  --gland:#dcae5c;
+  --gland-soft:#4a3c20;
+  --thyroid:#c5806f;
+  --thyroid-soft:#472d28;
+  --nerve:#cfbe5f;
+  --tube:#22303a;
+  --eso:#33454f;
+  --organ:#202e37;
+  --up:#e28166;
+  --down:#63b4c6;
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",system-ui,sans-serif;
+  font-size:15px;
+  line-height:var(--lead);
+  -webkit-font-smoothing:antialiased;
+}
+.page{max-width:960px;margin-inline:auto;padding-inline:20px;padding-block:56px 72px}
+.prose{max-width:64ch}
+
+h1,h2,h3{font-family:"Zen Old Mincho","Hiragino Mincho ProN",serif;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.1rem,6vw,3.1rem);line-height:1.25;font-weight:700;letter-spacing:.01em}
+h2{font-size:clamp(1.3rem,3.4vw,1.6rem);font-weight:700;line-height:1.4}
+h3{font-size:1.02rem;font-weight:700;line-height:1.5}
+p{margin:0}
+
+.eyebrow{
+  font-size:.72rem;font-weight:700;letter-spacing:.18em;color:var(--accent);
+  margin:0 0 14px;text-transform:none;
+}
+.lede{margin-top:18px;color:var(--ink-2);font-size:1.02rem}
+
+.masthead{border-bottom:2px solid var(--ink);padding-bottom:28px}
+.meta{
+  display:flex;flex-wrap:wrap;gap:0;margin-top:28px;
+  border:1px solid var(--line);background:var(--surface);
+}
+.meta div{flex:1 1 180px;padding:14px 18px;border-right:1px solid var(--line)}
+.meta div:last-child{border-right:0}
+.meta dt{font-size:.7rem;letter-spacing:.12em;color:var(--ink-2);margin:0 0 4px}
+.meta dd{margin:0;font-size:.95rem;font-weight:500;line-height:1.5}
+
+section{border-top:1px solid var(--line);margin-top:0;padding-block:44px}
+.sec-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:20px}
+.sec-num{
+  font-family:"IBM Plex Mono",monospace;font-size:.78rem;letter-spacing:.1em;
+  color:var(--accent);border:1px solid var(--accent);border-radius:2px;padding:2px 8px;
+  white-space:nowrap;
+}
+
+figure{margin:26px 0 0}
+.fig-scroll{overflow-x:auto;background:var(--surface);border:1px solid var(--line);padding:18px 16px}
+.fig-scroll svg{display:block;width:100%;min-width:600px;height:auto;
+  font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",system-ui,sans-serif}
+figcaption{margin-top:14px;font-size:.86rem;color:var(--ink-2);line-height:1.8;max-width:70ch}
+figcaption b{color:var(--ink);font-weight:700}
+.scrollhint{display:none;font-size:.74rem;color:var(--ink-2);margin-top:8px;letter-spacing:.06em}
+@media (max-width:660px){.scrollhint{display:block}}
+
+/* ---- SVG shared classes ---- */
+.s-box{fill:var(--surface);stroke:var(--line-strong);stroke-width:1.25}
+.s-organ{fill:var(--organ);stroke:var(--line-strong);stroke-width:1.25}
+.s-pth{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.4}
+.s-title{fill:var(--ink);font-size:13px;font-weight:700}
+.s-lbl{fill:var(--ink);font-size:12.5px}
+.s-sub{fill:var(--ink-2);font-size:11px}
+.s-tiny{fill:var(--ink-2);font-size:10px;letter-spacing:.04em}
+.s-arrow{stroke:var(--ink-2);stroke-width:1.6;fill:none;stroke-linecap:round}
+.s-dash{stroke-dasharray:5 4}
+.s-head{fill:var(--ink-2)}
+.s-head-a{fill:var(--accent)}
+.s-acc{stroke:var(--accent);stroke-width:2.2;stroke-linecap:round}
+.s-x{fill:var(--accent);font-weight:700}
+.s-ok{fill:var(--down);font-weight:700}
+.s-up{fill:var(--up);font-weight:700}
+.s-down{fill:var(--down);font-weight:700}
+.s-lead{stroke:var(--line-strong);stroke-width:1;fill:none}
+.s-dot{fill:var(--ink-2)}
+.s-thy{fill:var(--thyroid-soft);stroke:var(--thyroid);stroke-width:1.5}
+.s-gland{fill:var(--gland-soft);stroke:var(--gland);stroke-width:1.5}
+.s-adeno{fill:var(--gland-soft);stroke:var(--accent);stroke-width:2.2}
+.s-tube{fill:var(--tube);stroke:var(--line-strong);stroke-width:1.25}
+.s-eso{fill:var(--eso);stroke:var(--line-strong);stroke-width:1.25}
+.s-ring{stroke:var(--line-strong);stroke-width:1;opacity:.65}
+.s-nerve{stroke:var(--nerve);stroke-width:2.4;fill:none;stroke-linecap:round}
+.s-ghost{fill:none;stroke:var(--thyroid);stroke-width:1.3;stroke-dasharray:4 4;opacity:.75}
+
+/* ---- tables ---- */
+.table-wrap{overflow-x:auto;margin-top:24px;border:1px solid var(--line);background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:520px;font-size:.9rem}
+th,td{padding:11px 16px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{
+  font-size:.72rem;letter-spacing:.1em;color:var(--ink-2);font-weight:700;
+  border-bottom:1px solid var(--line-strong);white-space:nowrap
+}
+tbody th{font-weight:500;white-space:nowrap}
+tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
+td{font-variant-numeric:tabular-nums}
+.up{color:var(--up);font-weight:700}
+.down{color:var(--down);font-weight:700}
+.flat{color:var(--ink-2)}
+
+/* ---- symptom grid ---- */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:28px 32px;margin-top:26px}
+.grid h3{margin-bottom:10px;padding-top:12px;border-top:2px solid var(--ink)}
+.grid .en{display:block;font-family:"IBM Plex Mono",monospace;font-size:.7rem;
+  letter-spacing:.1em;color:var(--ink-2);font-weight:400;margin-top:3px}
+ul{margin:0;padding-left:1.15em}
+li{margin-bottom:5px;font-size:.92rem;line-height:1.75}
+li::marker{color:var(--accent)}
+
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:32px;margin-top:24px}
+.cols h3{margin-bottom:10px}
+.cols p{font-size:.92rem;color:var(--ink-2)}
+
+.note{
+  margin-top:28px;background:var(--surface-2);border:1px solid var(--line);
+  padding:20px 22px;
+}
+.note .tag{
+  display:inline-block;font-size:.68rem;letter-spacing:.14em;font-weight:700;
+  color:var(--accent);border-bottom:2px solid var(--accent);padding-bottom:3px;margin-bottom:12px
+}
+.note p{font-size:.9rem;line-height:1.8}
+.note p + p{margin-top:10px}
+.k{font-family:"IBM Plex Mono",monospace;font-size:.86em;font-variant-numeric:tabular-nums}
+
+.crit{margin-top:18px;padding-left:0;list-style:none}
+.crit li{display:flex;gap:12px;align-items:baseline;border-bottom:1px dashed var(--line);padding-bottom:7px;margin-bottom:7px}
+.crit li:last-child{border-bottom:0}
+.crit .n{font-family:"IBM Plex Mono",monospace;font-size:.75rem;color:var(--accent);flex:0 0 auto}
+
+footer{border-top:1px solid var(--line);margin-top:0;padding-top:28px;
+  font-size:.8rem;color:var(--ink-2);line-height:1.8}
+footer strong{color:var(--ink)}
+</style>
+
+<div class="page">
+
+  <header class="masthead">
+    <p class="eyebrow">内分泌 ／ カルシウム・リン代謝</p>
+    <h1>副甲状腺機能亢進症</h1>
+    <p class="lede prose">副甲状腺ホルモン（PTH）が過剰に分泌される病態。骨・腎・腸という三つの経路で血中カルシウムを引き上げる PTH の生理作用が、そのまま症候となって現れる。原因のどこから始まるかで、原発性・続発性・三次性に分かれる。</p>
+    <dl class="meta">
+      <div><dt>英名</dt><dd>hyperparathyroidism</dd></div>
+      <div><dt>中心となる異常</dt><dd>PTH の過剰分泌</dd></div>
+      <div><dt>典型的な検査値（原発性）</dt><dd>血清 Ca <span class="up">↑</span>／血清 P <span class="down">↓</span>／intact PTH <span class="up">↑</span></dd></div>
+    </dl>
+  </header>
+
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">図 1</span>
+      <h2>副甲状腺はどこにあるか</h2>
+    </div>
+    <p class="prose">副甲状腺（上皮小体）は米粒大の内分泌腺で、通常は甲状腺の後面に上下 1 対ずつ、計 4 腺ある。上腺は第 4 咽頭嚢、下腺は第 3 咽頭嚢に由来し、下腺は胸腺とともに下降するため位置のばらつきが大きい（縦隔内に迷入することもある）。</p>
+
+    <figure>
+      <div class="fig-scroll">
+        <svg viewBox="0 0 640 424" role="img" aria-label="頸部の背面像。甲状腺の後面に上下1対ずつ計4腺の副甲状腺があり、右下腺のみが腺腫として腫大している図。">
+          <defs>
+            <marker id="ah1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 Z" class="s-head"/>
+            </marker>
+          </defs>
+
+          <!-- trachea -->
+          <rect class="s-tube" x="284" y="56" width="72" height="326" rx="14"/>
+          <line class="s-ring" x1="286" y1="80" x2="354" y2="80"/>
+          <line class="s-ring" x1="286" y1="104" x2="354" y2="104"/>
+          <line class="s-ring" x1="286" y1="128" x2="354" y2="128"/>
+          <line class="s-ring" x1="286" y1="152" x2="354" y2="152"/>
+          <line class="s-ring" x1="286" y1="176" x2="354" y2="176"/>
+          <line class="s-ring" x1="286" y1="200" x2="354" y2="200"/>
+          <line class="s-ring" x1="286" y1="224" x2="354" y2="224"/>
+          <line class="s-ring" x1="286" y1="248" x2="354" y2="248"/>
+          <line class="s-ring" x1="286" y1="272" x2="354" y2="272"/>
+          <line class="s-ring" x1="286" y1="296" x2="354" y2="296"/>
+          <line class="s-ring" x1="286" y1="320" x2="354" y2="320"/>
+          <line class="s-ring" x1="286" y1="344" x2="354" y2="344"/>
+
+          <!-- esophagus, slightly to the patient's left -->
+          <rect class="s-eso" x="290" y="64" width="46" height="318" rx="22"/>
+
+          <!-- isthmus (lies on the far / anterior side) -->
+          <rect class="s-ghost" x="286" y="228" width="68" height="50" rx="10"/>
+
+          <!-- thyroid lobes -->
+          <path id="lobe" class="s-thy" d="M 276 96 C 254 96, 230 126, 222 168 C 214 210, 226 262, 254 292 C 270 308, 284 300, 286 282 L 286 118 C 286 102, 284 96, 276 96 Z"/>
+          <use href="#lobe" transform="matrix(-1,0,0,1,640,0)"/>
+
+          <!-- recurrent laryngeal nerves in the tracheo-esophageal groove -->
+          <path class="s-nerve" d="M 280 384 C 276 300, 286 200, 290 92"/>
+          <path class="s-nerve" d="M 360 384 C 364 300, 354 200, 350 92"/>
+
+          <!-- parathyroid glands -->
+          <ellipse class="s-gland" cx="246" cy="150" rx="9" ry="13"/>
+          <ellipse class="s-gland" cx="258" cy="262" rx="9" ry="13"/>
+          <ellipse class="s-gland" cx="394" cy="150" rx="9" ry="13"/>
+          <ellipse class="s-adeno" cx="382" cy="262" rx="17" ry="23"/>
+
+          <!-- labels: left -->
+          <path class="s-lead" d="M 122 126 L 238 147"/><circle class="s-dot" cx="238" cy="147" r="2"/>
+          <text class="s-lbl" x="16" y="116">上副甲状腺</text>
+          <text class="s-sub" x="16" y="133">第 4 咽頭嚢由来</text>
+
+          <path class="s-lead" d="M 138 202 L 228 192"/><circle class="s-dot" cx="228" cy="192" r="2"/>
+          <text class="s-lbl" x="16" y="198">甲状腺（左葉）</text>
+
+          <path class="s-lead" d="M 122 282 L 250 265"/><circle class="s-dot" cx="250" cy="265" r="2"/>
+          <text class="s-lbl" x="16" y="278">下副甲状腺</text>
+          <text class="s-sub" x="16" y="295">第 3 咽頭嚢由来・位置の変異が多い</text>
+
+          <!-- labels: right -->
+          <path class="s-lead" d="M 518 126 L 402 147"/><circle class="s-dot" cx="402" cy="147" r="2"/>
+          <text class="s-lbl" x="624" y="116" text-anchor="end">上副甲状腺</text>
+          <text class="s-sub" x="624" y="133" text-anchor="end">正常は米粒大（約 40 mg）</text>
+
+          <path class="s-lead" d="M 520 196 L 358 190"/><circle class="s-dot" cx="358" cy="190" r="2"/>
+          <text class="s-lbl" x="624" y="192" text-anchor="end">反回神経</text>
+          <text class="s-sub" x="624" y="209" text-anchor="end">摘出術で損傷しやすい</text>
+
+          <path class="s-lead" d="M 518 282 L 400 266"/><circle class="s-dot" cx="400" cy="266" r="2"/>
+          <text class="s-lbl" x="624" y="278" text-anchor="end">副甲状腺腺腫</text>
+          <text class="s-sub" x="624" y="295" text-anchor="end">原発性の約 80％・多くは単腺</text>
+
+          <!-- bottom labels -->
+          <path class="s-lead" d="M 232 396 L 302 330"/><circle class="s-dot" cx="302" cy="330" r="2"/>
+          <text class="s-lbl" x="212" y="410" text-anchor="middle">食道</text>
+
+          <path class="s-lead" d="M 424 396 L 348 332"/><circle class="s-dot" cx="348" cy="332" r="2"/>
+          <text class="s-lbl" x="440" y="410" text-anchor="middle">気管</text>
+        </svg>
+      </div>
+      <p class="scrollhint">← 図は横にスクロールできます →</p>
+      <figcaption><b>図 1　頸部の背面像。</b>甲状腺の峡部は前面側にあたるため破線で示した。正常な副甲状腺は 4 腺とも米粒大だが、原発性副甲状腺機能亢進症では約 80％が <b>1 腺だけの腺腫</b>（図では患者右下腺）として腫大する。残り約 15％は 4 腺すべての過形成で、これは MEN1 や MEN2A など遺伝性を疑う所見でもある。反回神経は気管食道溝を上行し、副甲状腺のすぐ近くを走る。</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">図 2</span>
+      <h2>PTH は三つの経路で血中 Ca を上げる</h2>
+    </div>
+    <p class="prose">PTH の標的は骨と腎で、腸管へは活性型ビタミン D を介した間接作用として届く。血清 Ca と血清 P が逆方向に動くのは、腎の近位尿細管でリン再吸収が抑えられ、尿中へリンが捨てられるため。</p>
+
+    <figure>
+      <div class="fig-scroll">
+        <svg viewBox="0 0 720 460" role="img" aria-label="PTHが骨・腎・腸の三経路を介して血清カルシウムを上げ、尿中リン排泄を増やして血清リンを下げる機序の図。高カルシウムによる負のフィードバックは原発性では破綻する。">
+          <defs>
+            <marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 Z" class="s-head"/>
+            </marker>
+          </defs>
+
+          <!-- negative feedback loop (broken in primary) -->
+          <path class="s-arrow s-dash" d="M 621 76 L 621 16 L 100 16 L 100 190" marker-end="url(#ah2)"/>
+          <line class="s-acc" x1="322" y1="8" x2="338" y2="24"/>
+          <line class="s-acc" x1="338" y1="8" x2="322" y2="24"/>
+          <text class="s-tiny" x="604" y="36" text-anchor="end">高 Ca による負のフィードバック（CaSR）── 腺腫では破綻</text>
+
+          <!-- parathyroid source -->
+          <rect class="s-pth" x="16" y="192" width="140" height="84" rx="4"/>
+          <text class="s-title" x="32" y="222">副甲状腺</text>
+          <text class="s-sub" x="32" y="243">主細胞から</text>
+          <text class="s-lbl" x="32" y="263">PTH 分泌 <tspan class="s-up">↑</tspan></text>
+
+          <!-- arrows to organs -->
+          <path class="s-arrow" d="M 156 214 C 196 214, 196 98, 236 98" marker-end="url(#ah2)"/>
+          <path class="s-arrow" d="M 156 248 L 236 248" marker-end="url(#ah2)"/>
+          <rect class="s-pth" x="172" y="140" width="46" height="19" rx="9.5"/>
+          <text x="195" y="154" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--accent)">PTH</text>
+          <rect class="s-pth" x="172" y="239" width="46" height="19" rx="9.5"/>
+          <text x="195" y="253" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--accent)">PTH</text>
+
+          <!-- bone -->
+          <rect class="s-organ" x="236" y="48" width="280" height="100" rx="4"/>
+          <text class="s-title" x="256" y="76">骨</text>
+          <text class="s-sub" x="256" y="99">骨芽細胞の RANKL <tspan class="s-up">↑</tspan> → 破骨細胞を活性化</text>
+          <text class="s-sub" x="256" y="118">骨吸収が進み Ca・P を血中へ放出</text>
+          <text class="s-sub" x="256" y="137">線維性骨炎・皮質骨の減少</text>
+
+          <!-- kidney -->
+          <rect class="s-organ" x="236" y="186" width="280" height="124" rx="4"/>
+          <text class="s-title" x="256" y="214">腎</text>
+          <text class="s-sub" x="256" y="237">遠位尿細管：Ca 再吸収 <tspan class="s-up">↑</tspan></text>
+          <text class="s-sub" x="256" y="256">近位尿細管：P 再吸収 <tspan class="s-down">↓</tspan></text>
+          <text class="s-sub" x="256" y="275">1α 水酸化酵素 <tspan class="s-up">↑</tspan></text>
+          <text class="s-sub" x="256" y="294">→ 活性型ビタミン D をつくる</text>
+
+          <!-- intestine -->
+          <rect class="s-organ" x="236" y="352" width="280" height="88" rx="4"/>
+          <text class="s-title" x="256" y="380">腸管</text>
+          <text class="s-sub" x="256" y="403">活性型ビタミン D を介して</text>
+          <text class="s-sub" x="256" y="422">Ca 吸収 <tspan class="s-up">↑</tspan>（PTH の間接作用）</text>
+
+          <!-- kidney to gut -->
+          <path class="s-arrow s-dash" d="M 356 310 L 356 352" marker-end="url(#ah2)"/>
+          <text class="s-tiny" x="366" y="336">1,25(OH)₂D</text>
+
+          <!-- organs to results -->
+          <path class="s-arrow" d="M 516 98 L 548 104" marker-end="url(#ah2)"/>
+          <path class="s-arrow" d="M 516 214 C 536 214, 534 140, 548 122" marker-end="url(#ah2)"/>
+          <path class="s-arrow" d="M 516 396 C 542 396, 544 200, 548 132" marker-end="url(#ah2)"/>
+          <path class="s-arrow" d="M 516 280 L 548 284" marker-end="url(#ah2)"/>
+
+          <!-- results -->
+          <rect class="s-box" x="548" y="76" width="156" height="64" rx="4"/>
+          <text class="s-title" x="566" y="106">血清 Ca <tspan class="s-up">↑</tspan></text>
+          <text class="s-sub" x="566" y="126">イオン化 Ca も上昇</text>
+
+          <rect class="s-box" x="548" y="252" width="156" height="64" rx="4"/>
+          <text class="s-title" x="566" y="282">血清 P <tspan class="s-down">↓</tspan></text>
+          <text class="s-sub" x="566" y="302">尿中 P 排泄は増加</text>
+        </svg>
+      </div>
+      <p class="scrollhint">← 図は横にスクロールできます →</p>
+      <figcaption><b>図 2　PTH の作用機序。</b>骨・腎・腸の三経路はいずれも血清 Ca を上げる方向にはたらき、リンだけが腎から捨てられて逆に下がる。正常なら上がった Ca が副甲状腺の Ca 感知受容体（CaSR）を刺激して PTH 分泌を抑える（点線）が、腺腫ではこの抑制が効かず、高 Ca 血症と高 PTH が同時に存在するという「不適切な」組み合わせになる。これが診断の要となる。</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">図 3</span>
+      <h2>原発性・続発性・三次性はどこが違うか</h2>
+    </div>
+    <p class="prose">三つの病型は「PTH が高い」点では同じで、違うのは<b>刺激の出どころ</b>と<b>その結果の血清 Ca</b>。下図は PTH の枠を三段で同じ位置に揃え、左右がどう変わるかを比べられるようにした。</p>
+
+    <figure>
+      <div class="fig-scroll">
+        <svg viewBox="0 0 720 348" role="img" aria-label="原発性・続発性・三次性の比較図。原因からPTH上昇を経て血清カルシウム・リンに至る流れを三段で並べ、フィードバックが保たれるか破綻するかを示す。">
+          <defs>
+            <marker id="ah3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 Z" class="s-head"/>
+            </marker>
+          </defs>
+
+          <!-- row 1: primary -->
+          <text class="s-title" x="16" y="24">原発性</text>
+          <rect class="s-box" x="16" y="32" width="228" height="76" rx="4"/>
+          <text class="s-lbl" x="32" y="58">副甲状腺腺腫・過形成</text>
+          <text class="s-sub" x="32" y="78">腺腫 約 80％／過形成 約 15％</text>
+          <text class="s-sub" x="32" y="96">まれに癌（1％未満）</text>
+          <path class="s-arrow" d="M 244 70 L 304 70" marker-end="url(#ah3)"/>
+          <text class="s-tiny" x="274" y="60" text-anchor="middle">自律性</text>
+          <rect class="s-pth" x="304" y="46" width="96" height="48" rx="4"/>
+          <text class="s-title" x="352" y="76" text-anchor="middle">PTH <tspan class="s-up">↑</tspan></text>
+          <path class="s-arrow" d="M 400 70 L 460 70" marker-end="url(#ah3)"/>
+          <rect class="s-box" x="460" y="32" width="244" height="76" rx="4"/>
+          <text class="s-lbl" x="476" y="58">血清 Ca <tspan class="s-up">↑</tspan>　／　血清 P <tspan class="s-down">↓</tspan></text>
+          <text class="s-sub" x="476" y="78">尿中 Ca <tspan class="s-up">↑</tspan>・尿路結石</text>
+          <text class="s-sub" x="476" y="96"><tspan class="s-x">×</tspan> 負のフィードバック破綻</text>
+
+          <!-- row 2: secondary -->
+          <text class="s-title" x="16" y="134">続発性（腎性）</text>
+          <rect class="s-box" x="16" y="142" width="228" height="76" rx="4"/>
+          <text class="s-lbl" x="32" y="168">慢性腎臓病</text>
+          <text class="s-sub" x="32" y="188">P 貯留・活性型ビタミン D <tspan class="s-down">↓</tspan></text>
+          <text class="s-sub" x="32" y="206">→ 低 Ca の刺激が持続</text>
+          <path class="s-arrow" d="M 244 180 L 304 180" marker-end="url(#ah3)"/>
+          <text class="s-tiny" x="274" y="170" text-anchor="middle">代償性</text>
+          <rect class="s-pth" x="304" y="156" width="96" height="48" rx="4"/>
+          <text class="s-title" x="352" y="186" text-anchor="middle">PTH <tspan class="s-up">↑</tspan></text>
+          <path class="s-arrow" d="M 400 180 L 460 180" marker-end="url(#ah3)"/>
+          <rect class="s-box" x="460" y="142" width="244" height="76" rx="4"/>
+          <text class="s-lbl" x="476" y="168">血清 Ca 正常〜<tspan class="s-down">↓</tspan>　／　血清 P <tspan class="s-up">↑</tspan></text>
+          <text class="s-sub" x="476" y="188">腎性骨異栄養症・異所性石灰化</text>
+          <text class="s-sub" x="476" y="206"><tspan class="s-ok">○</tspan> フィードバックは保たれている</text>
+
+          <!-- row 3: tertiary -->
+          <text class="s-title" x="16" y="244">三次性</text>
+          <rect class="s-box" x="16" y="252" width="228" height="76" rx="4"/>
+          <text class="s-lbl" x="32" y="278">続発性の長期持続</text>
+          <text class="s-sub" x="32" y="298">過形成腺が自律性を獲得</text>
+          <text class="s-sub" x="32" y="316">腎移植後などに顕在化</text>
+          <path class="s-arrow" d="M 244 290 L 304 290" marker-end="url(#ah3)"/>
+          <text class="s-tiny" x="274" y="280" text-anchor="middle">自律化</text>
+          <rect class="s-pth" x="304" y="266" width="96" height="48" rx="4"/>
+          <text class="s-title" x="352" y="296" text-anchor="middle">PTH <tspan class="s-up">↑↑</tspan></text>
+          <path class="s-arrow" d="M 400 290 L 460 290" marker-end="url(#ah3)"/>
+          <rect class="s-box" x="460" y="252" width="244" height="76" rx="4"/>
+          <text class="s-lbl" x="476" y="278">血清 Ca <tspan class="s-up">↑</tspan>　／　血清 P 正常〜<tspan class="s-up">↑</tspan></text>
+          <text class="s-sub" x="476" y="298">刺激が去っても PTH が下がらない</text>
+          <text class="s-sub" x="476" y="316"><tspan class="s-x">×</tspan> 負のフィードバック破綻</text>
+        </svg>
+      </div>
+      <p class="scrollhint">← 図は横にスクロールできます →</p>
+      <figcaption><b>図 3　病型の比較。</b>原発性は副甲状腺そのものが原因で、血清 Ca は上がる。続発性は副甲状腺が正しく反応しているだけで、腎性では血清 P が上がり Ca はむしろ低い。三次性は続発性が長く続いた末に腺が自律化したもので、刺激が取り除かれた後も PTH が下がらず高 Ca 血症になる。</figcaption>
+    </figure>
+
+    <div class="table-wrap">
+      <table>
+        <caption class="visually-hidden" style="position:absolute;left:-9999px">原発性と続発性（腎性）の検査所見の比較</caption>
+        <thead>
+          <tr><th scope="col">検査項目</th><th scope="col">原発性</th><th scope="col">続発性（腎性）</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">血清 Ca</th><td><span class="up">↑</span> 上昇</td><td><span class="flat">正常</span>〜<span class="down">↓</span> 低下</td></tr>
+          <tr><th scope="row">血清 P</th><td><span class="down">↓</span> 低下</td><td><span class="up">↑</span> 上昇（腎排泄低下）</td></tr>
+          <tr><th scope="row">intact PTH</th><td><span class="up">↑</span> 高値または不適切正常</td><td><span class="up">↑↑</span> 高値</td></tr>
+          <tr><th scope="row">ALP・骨代謝マーカー</th><td><span class="up">↑</span>（骨病変があるとき）</td><td><span class="up">↑</span></td></tr>
+          <tr><th scope="row">1,25(OH)₂ ビタミン D</th><td><span class="up">↑</span></td><td><span class="down">↓</span>（1α 水酸化能の低下）</td></tr>
+          <tr><th scope="row">尿中 Ca</th><td><span class="up">↑</span></td><td><span class="down">↓</span>〜<span class="flat">正常</span></td></tr>
+          <tr><th scope="row">骨の所見</th><td>線維性骨炎、皮質骨優位の骨量減少</td><td>腎性骨異栄養症（線維性骨炎型）</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">症候</span>
+      <h2>高 Ca 血症が起こすこと</h2>
+    </div>
+    <p class="prose">古典的に「骨・結石・腹部・精神」の四つで整理される。健診の血清 Ca 高値だけで見つかる無症候例も現在は多い。</p>
+
+    <div class="grid">
+      <div>
+        <h3>骨<span class="en">bones</span></h3>
+        <ul>
+          <li>線維性骨炎（osteitis fibrosa cystica）</li>
+          <li>ブラウン腫瘍</li>
+          <li>頭蓋骨の salt-and-pepper 像</li>
+          <li>皮質骨優位の骨量減少（橈骨遠位 1/3）</li>
+          <li>骨痛・病的骨折</li>
+        </ul>
+      </div>
+      <div>
+        <h3>結石<span class="en">stones</span></h3>
+        <ul>
+          <li>Ca 含有の尿路結石、腎石灰化</li>
+          <li>多尿・口渇（腎性尿崩症様）</li>
+          <li>腎機能低下</li>
+        </ul>
+      </div>
+      <div>
+        <h3>腹部症状<span class="en">abdominal groans</span></h3>
+        <ul>
+          <li>食欲低下・悪心・嘔吐</li>
+          <li>便秘</li>
+          <li>消化性潰瘍</li>
+          <li>急性膵炎</li>
+        </ul>
+      </div>
+      <div>
+        <h3>精神・神経<span class="en">psychic moans</span></h3>
+        <ul>
+          <li>易疲労・脱力</li>
+          <li>抑うつ、集中力低下</li>
+          <li>重症では傾眠から昏睡へ</li>
+          <li>心電図で QT 短縮</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note">
+      <span class="tag">高 Ca 血症クリーゼ</span>
+      <p>補正 Ca が <span class="k">14 mg/dL</span> を超えると、脱水・意識障害・不整脈をきたす緊急事態。生理食塩水の大量輸液で脱水を補正しながら、即効性のカルシトニンと、遅れて効くビスホスホネート（ゾレドロン酸）を併用する。アルブミンが低い場合は <span class="k">補正 Ca ＝ 実測 Ca ＋（4 − Alb）</span> で評価する。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">診断</span>
+      <h2>調べる順序と鑑別</h2>
+    </div>
+    <div class="cols">
+      <div>
+        <h3>診断の軸</h3>
+        <p>高 Ca 血症に対して intact PTH が高値、または「高 Ca なのに正常」という不適切な値であることを確認する。ここが押さえられれば、PTH 依存性の高 Ca 血症と確定できる。</p>
+      </div>
+      <div>
+        <h3>局在診断</h3>
+        <p>頸部超音波と <span class="k">⁹⁹ᵐTc-MIBI</span> シンチグラフィを併用する。判定が割れるときは SPECT/CT や 4D-CT を追加し、術式（focused か両側探索か）を決める。</p>
+      </div>
+      <div>
+        <h3>鑑別すべきもの</h3>
+        <p>悪性腫瘍性高 Ca 血症（PTH は抑制され PTHrP が上昇）、ビタミン D 中毒、サルコイドーシス、サイアザイドやリチウムなどの薬剤性。</p>
+      </div>
+      <div>
+        <h3>背景の検索</h3>
+        <p>若年発症や 4 腺病変では MEN1・MEN2A・HPT-JT といった遺伝性を考える。家族歴と他内分泌腺の評価を忘れない。</p>
+      </div>
+    </div>
+
+    <div class="note">
+      <span class="tag">FHH との鑑別</span>
+      <p>家族性低 Ca 尿性高 Ca 血症（FHH）は CaSR の不活化変異による良性の病態で、検査値は原発性とよく似るが<b>手術の適応はない</b>。決め手は尿中 Ca で、24 時間尿中 Ca は低く、<span class="k">Ca/クレアチニンクリアランス比 &lt; 0.01</span> なら FHH を強く疑う。無症候の高 Ca 血症を長年指摘されている家族歴が手がかりになる。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">治療</span>
+      <h2>手術と薬物療法</h2>
+    </div>
+
+    <h3>原発性 ── 副甲状腺摘出術が唯一の根治</h3>
+    <p class="prose" style="margin-top:8px;color:var(--ink-2);font-size:.92rem">無症候例でも、以下のいずれかを満たせば手術が勧められる（第 4 回国際ワークショップの基準）。</p>
+    <ul class="crit prose">
+      <li><span class="n">Ca</span><span>血清 Ca が基準上限より <span class="k">1.0 mg/dL</span> を超えて高い</span></li>
+      <li><span class="n">骨</span><span>骨密度 T スコア <span class="k">≤ −2.5</span>（いずれかの部位）、または椎体骨折がある</span></li>
+      <li><span class="n">腎</span><span>eGFR <span class="k">&lt; 60 mL/分/1.73m²</span>、尿路結石・腎石灰化、24 時間尿中 Ca <span class="k">&gt; 400 mg/日</span></span></li>
+      <li><span class="n">年齢</span><span><span class="k">50 歳未満</span></span></li>
+    </ul>
+    <p class="prose" style="margin-top:16px;font-size:.92rem;color:var(--ink-2)">術中は intact PTH をモニタリングし、腺の摘出から 10 分で 50％以上低下すれば摘出成功と判断する（Miami criterion）。術後は反回神経麻痺と、骨が一気に Ca を取り込む hungry bone syndrome による低 Ca に注意する。手術を行わない場合は、十分な飲水、サイアザイド系利尿薬とリチウムの回避を指導し、高 Ca に対してシナカルセト、骨量維持にビスホスホネートやデノスマブを用いる。</p>
+
+    <h3 style="margin-top:32px">続発性（腎性）── 上流を止める</h3>
+    <p class="prose" style="margin-top:8px;font-size:.92rem;color:var(--ink-2)">刺激そのものを減らすのが治療になる。リン制限とリン吸着薬で高リン血症を抑え、活性型ビタミン D 製剤を補い、カルシミメティクス（シナカルセト、エボカルセト、静注のウパシカルセト）で CaSR を感作して PTH 分泌を直接抑える。薬物抵抗性で腺が自律化した例には、副甲状腺全摘＋前腕への自家移植や PEIT（経皮的エタノール注入）を検討する。</p>
+  </section>
+
+  <footer>
+    <p><strong>この図解について。</strong>医学生・研修医の学習用にまとめたイラストです。数値や適応基準は代表的なものを示しており、実際の診断・治療は最新のガイドラインと主治医の判断に従ってください。</p>
+  </footer>
+
+</div>
